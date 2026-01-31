@@ -17,7 +17,7 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
         <div className="space-y-8">
             <div className="flex flex-col md:flex-row items-center justify-between gap-4">
                 <div>
-                    <h1 className="text-3xl font-bold tracking-tight">Property Valuation</h1>
+                    <h1 className="text-3xl font-bold tracking-tight font-outfit">Property Valuation</h1>
                     <p className="text-muted-foreground">
                         {results.length} results found for "{query}"
                     </p>

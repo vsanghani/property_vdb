@@ -31,153 +31,125 @@
   --color-card: hsl(var(--card));
   --color-card-foreground: hsl(var(--card-foreground));
 
-  --radius: 0.5rem;
+  --radius: 0.75rem;
 
   --animate-accordion-down: accordion-down 0.2s ease-out;
   --animate-accordion-up: accordion-up 0.2s ease-out;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-pulse-slow: pulse-slow 8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-shimmer: shimmer 2s linear infinite;
 
   --keyframes-accordion-down: accordion-down {
-    from {
-      height: 0
-    }
-
-    to {
-      height: var(--radix-accordion-content-height)
-    }
+    from { height: 0 }
+    to { height: var(--radix-accordion-content-height) }
   }
 
   --keyframes-accordion-up: accordion-up {
-    from {
-      height: var(--radix-accordion-content-height)
-    }
+    from { height: var(--radix-accordion-content-height) }
+    to { height: 0 }
+  }
+  
+  --keyframes-float: float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+  }
 
-    to {
-      height: 0
-    }
+  --keyframes-pulse-slow: pulse-slow {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 0.1; }
+  }
+
+  --keyframes-shimmer: shimmer {
+    from { background-position: 0 0; }
+    to { background-position: -200% 0; }
   }
 }
 
-/*
-  The following @layer utilities block is kept for custom utilities,
-  but variables must be defined in :root/dark scope.
-*/
-
 :root {
+  /* Premium Light Mode */
   --background: 210 40% 98%;
-  --foreground: 222.2 84% 4.9%;
-
-  --card: 0 0% 100%;
-  --card-foreground: 222.2 84% 4.9%;
-
+  --foreground: 224 71.4% 4.1%;
+  
+  --card: 0 0% 100%; 
+  --card-foreground: 224 71.4% 4.1%;
+  
   --popover: 0 0% 100%;
-  --popover-foreground: 222.2 84% 4.9%;
-
-  --primary: 221.2 83.2% 53.3%;
-  --primary-foreground: 210 40% 98%;
-
-  --secondary: 210 40% 96.1%;
-  --secondary-foreground: 222.2 47.4% 11.2%;
-
-  --muted: 210 40% 96.1%;
-  --muted-foreground: 215.4 16.3% 46.9%;
-
-  --accent: 210 40% 96.1%;
-  --accent-foreground: 222.2 47.4% 11.2%;
-
+  --popover-foreground: 224 71.4% 4.1%;
+  
+  --primary: 246 80% 60%; /* Vibrant Indigo/Purple */
+  --primary-foreground: 210 20% 98%;
+  
+  --secondary: 220 14% 96%;
+  --secondary-foreground: 220.9 39.3% 11%;
+  
+  --muted: 220 14% 96%;
+  --muted-foreground: 220 8.9% 46.1%;
+  
+  --accent: 220 14% 96%;
+  --accent-foreground: 220.9 39.3% 11%;
+  
   --destructive: 0 84.2% 60.2%;
-  --destructive-foreground: 210 40% 98%;
-
-  --border: 214.3 31.8% 91.4%;
-  --input: 214.3 31.8% 91.4%;
-  --ring: 221.2 83.2% 53.3%;
-
-  --radius: 0.5rem;
+  --destructive-foreground: 210 20% 98%;
+  
+  --border: 220 13% 91%;
+  --input: 220 13% 91%;
+  --ring: 246 80% 60%; 
+  
+  --radius: 0.75rem;
 }
 
 .dark {
-  --background: 222.2 84% 4.9%;
-  --foreground: 210 40% 98%;
-
-  --card: 222.2 84% 4.9%;
-  --card-foreground: 210 40% 98%;
-
-  --popover: 222.2 84% 4.9%;
-  --popover-foreground: 210 40% 98%;
-
-  --primary: 217.2 91.2% 59.8%;
-  --primary-foreground: 222.2 47.4% 11.2%;
-
-  --secondary: 217.2 32.6% 17.5%;
-  --secondary-foreground: 210 40% 98%;
-
-  --muted: 217.2 32.6% 17.5%;
-  --muted-foreground: 215 20.2% 65.1%;
-
-  --accent: 217.2 32.6% 17.5%;
-  --accent-foreground: 210 40% 98%;
-
+  /* Deep Modern Dark Mode */
+  --background: 224 71.4% 4.1%;
+  --foreground: 210 20% 98%;
+  
+  --card: 224 71.4% 4.1%;
+  --card-foreground: 210 20% 98%;
+  
+  --popover: 224 71.4% 4.1%;
+  --popover-foreground: 210 20% 98%;
+  
+  --primary: 246 80% 65%; /* Slightly lighter for dark mode */
+  --primary-foreground: 210 20% 98%;
+  
+  --secondary: 215 27.9% 16.9%;
+  --secondary-foreground: 210 20% 98%;
+  
+  --muted: 215 27.9% 16.9%;
+  --muted-foreground: 217.9 10.6% 64.9%;
+  
+  --accent: 215 27.9% 16.9%;
+  --accent-foreground: 210 20% 98%;
+  
   --destructive: 0 62.8% 30.6%;
-  --destructive-foreground: 210 40% 98%;
-
-  --border: 217.2 32.6% 17.5%;
-  --input: 217.2 32.6% 17.5%;
-  --ring: 224.3 76.3% 48%;
+  --destructive-foreground: 210 20% 98%;
+  
+  --border: 215 27.9% 16.9%;
+  --input: 215 27.9% 16.9%;
+  --ring: 246 80% 65%;
 }
 
-/* Glassmorphism Utilities */
 @utility glass-panel {
-  background-color: rgb(255 255 255 / 0.3);
-  backdrop-filter: blur(12px);
-  border-width: 1px;
-  border-color: rgb(255 255 255 / 0.2);
-  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
-}
-
-.dark .glass-panel {
-  background-color: rgb(0 0 0 / 0.3);
-  border-color: rgb(255 255 255 / 0.1);
+  @apply bg-white/10 dark:bg-black/20 backdrop-blur-xl border border-white/20 dark:border-white/10 shadow-xl;
 }
 
 @utility glass-card {
-  background-color: rgb(255 255 255 / 0.4);
-  backdrop-filter: blur(16px);
-  border-width: 1px;
-  border-color: rgb(255 255 255 / 0.3);
-  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1);
-  border-radius: 0.75rem;
-}
-
-.dark .glass-card {
-  background-color: rgb(0 0 0 / 0.4);
-  border-color: rgb(255 255 255 / 0.1);
+  @apply bg-white/40 dark:bg-black/40 backdrop-blur-2xl border border-white/30 dark:border-white/10 shadow-lg rounded-xl transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] hover:bg-white/50 dark:hover:bg-black/50;
 }
 
 @utility glass-input {
-  background-color: rgb(255 255 255 / 0.2);
-  backdrop-filter: blur(4px);
-  border-color: rgb(255 255 255 / 0.3);
-  outline-style: none;
-  transition-property: all;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
-}
-
-.dark .glass-input {
-  background-color: rgb(0 0 0 / 0.3);
-  border-color: rgb(255 255 255 / 0.2);
-}
-
-.glass-input:focus {
-  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
-  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--color-primary);
-  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
-  border-color: rgb(255 255 255 / 0.5);
+  @apply bg-white/20 dark:bg-black/20 backdrop-blur-md border border-white/20 dark:border-white/10 outline-none transition-all duration-300 focus:bg-white/30 dark:focus:bg-black/30 focus:border-primary/50 focus:ring-2 focus:ring-primary/20;
 }
 
 @utility text-gradient {
-  background-clip: text;
-  color: transparent;
-  background-image: linear-gradient(to right, var(--color-primary), #a855f7);
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-purple-500 to-pink-500 animate-shimmer bg-[size:200%_auto];
+}
+
+@utility bg-gradient-mesh {
+  background-image: 
+    radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), 
+    radial-gradient(at 50% 0%, hsla(225,39%,30%,1) 0, transparent 50%), 
+    radial-gradient(at 100% 0%, hsla(339,49%,30%,1) 0, transparent 50%);
 }
 
 @layer base {
@@ -188,5 +160,6 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+    font-feature-settings: "rlig" 1, "calt" 1;
   }
 }

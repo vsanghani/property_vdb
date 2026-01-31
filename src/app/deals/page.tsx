@@ -7,7 +7,7 @@ export default async function DealsPage() {
     return (
         <div className="space-y-8">
             <div>
-                <h1 className="text-3xl font-bold tracking-tight">Recent Property Deals</h1>
+                <h1 className="text-3xl font-bold tracking-tight font-outfit">Recent Property Deals</h1>
                 <p className="text-muted-foreground">
                     Latest property transactions and listings in Hobart.
                 </p>
